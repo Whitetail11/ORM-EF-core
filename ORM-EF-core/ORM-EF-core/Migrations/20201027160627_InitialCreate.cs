@@ -26,7 +26,7 @@ namespace ORM_EF_core.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
-                    FacultyId = table.Column<int>(nullable: true)
+                    FacultyId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +36,7 @@ namespace ORM_EF_core.Migrations
                         column: x => x.FacultyId,
                         principalTable: "Faculties",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,7 +46,7 @@ namespace ORM_EF_core.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
-                    GroupId = table.Column<int>(nullable: true)
+                    GroupId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace ORM_EF_core.Migrations
                         column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
